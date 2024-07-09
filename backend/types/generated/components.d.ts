@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentHeroImage extends Schema.Component {
+  collectionName: 'components_component_hero_images';
+  info: {
+    displayName: 'HeroImage';
+    icon: 'book';
+  };
+  attributes: {
+    title: Attribute.String;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Link: Attribute.Text;
+  };
+}
+
 export interface ComponentLink extends Schema.Component {
   collectionName: 'components_component_links';
   info: {
@@ -12,13 +25,27 @@ export interface ComponentLink extends Schema.Component {
   };
 }
 
-export interface ComponentName extends Schema.Component {
-  collectionName: 'components_component_names';
+export interface ComponentSubLink extends Schema.Component {
+  collectionName: 'components_component_sub_links';
   info: {
-    displayName: 'name';
+    displayName: 'subLink';
   };
   attributes: {
-    description: Attribute.String;
+    text: Attribute.String;
+    link: Attribute.Text;
+    isExternal: Attribute.Boolean;
+  };
+}
+
+export interface LayoutCarousel extends Schema.Component {
+  collectionName: 'components_layout_carousels';
+  info: {
+    displayName: 'carousel';
+    icon: 'apps';
+  };
+  attributes: {
+    Title: Attribute.String;
+    HeroImage: Attribute.Component<'component.hero-image', true>;
   };
 }
 
@@ -40,19 +67,21 @@ export interface LayoutHeroSection extends Schema.Component {
 export interface LayoutSubHero extends Schema.Component {
   collectionName: 'components_layout_sub_heroes';
   info: {
-    displayName: 'sub hero';
+    displayName: 'subHero';
   };
   attributes: {
-    image: Attribute.Media<'images'>;
-    name: Attribute.String;
+    title: Attribute.String;
+    Links: Attribute.Component<'component.sub-link', true>;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'component.hero-image': ComponentHeroImage;
       'component.link': ComponentLink;
-      'component.name': ComponentName;
+      'component.sub-link': ComponentSubLink;
+      'layout.carousel': LayoutCarousel;
       'layout.hero-section': LayoutHeroSection;
       'layout.sub-hero': LayoutSubHero;
     }

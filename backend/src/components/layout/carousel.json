@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_carousels",
+  "info": {
+    "displayName": "carousel",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "HeroImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.hero-image"
+    }
+  }
+}

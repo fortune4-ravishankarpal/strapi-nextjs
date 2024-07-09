@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custumers",
+  "info": {
+    "singularName": "custumer",
+    "pluralName": "custumers",
+    "displayName": "custumer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

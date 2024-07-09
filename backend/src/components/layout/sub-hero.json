@@ -1,19 +1,17 @@
 {
   "collectionName": "components_layout_sub_heroes",
   "info": {
-    "displayName": "sub hero"
+    "displayName": "subHero"
   },
   "options": {},
   "attributes": {
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "name": {
+    "title": {
       "type": "string"
+    },
+    "Links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.sub-link"
     }
   }
 }

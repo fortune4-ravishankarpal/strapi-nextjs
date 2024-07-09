@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_component_hero_images",
+  "info": {
+    "displayName": "HeroImage",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Link": {
+      "type": "text"
+    }
+  }
+}

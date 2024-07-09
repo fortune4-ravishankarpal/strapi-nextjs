@@ -65,12 +65,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "dee": {
-      "type": "dynamiczone",
-      "components": [
-        "component.name",
-        "layout.sub-hero"
-      ]
+    "wishlist": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "sub_hero_components",
+  "info": {
+    "singularName": "sub-hero-component",
+    "pluralName": "sub-hero-components",
+    "displayName": "subHero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "dex": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.sub-link"
+    }
+  }
+}
