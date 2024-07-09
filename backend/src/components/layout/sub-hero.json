@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_sub_heroes",
+  "info": {
+    "displayName": "sub hero"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
