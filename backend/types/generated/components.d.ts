@@ -1,5 +1,20 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentAddress extends Schema.Component {
+  collectionName: 'components_component_addresses';
+  info: {
+    displayName: 'Address';
+    description: '';
+  };
+  attributes: {
+    landMark: Attribute.String;
+    pincode: Attribute.String;
+    state: Attribute.String;
+    city: Attribute.String;
+    mobile: Attribute.String;
+  };
+}
+
 export interface ComponentHeroImage extends Schema.Component {
   collectionName: 'components_component_hero_images';
   info: {
@@ -78,6 +93,7 @@ export interface LayoutSubHero extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'component.address': ComponentAddress;
       'component.hero-image': ComponentHeroImage;
       'component.link': ComponentLink;
       'component.sub-link': ComponentSubLink;

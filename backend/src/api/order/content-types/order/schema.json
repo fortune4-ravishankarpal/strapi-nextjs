@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "displayName": "Address",
+      "type": "component",
+      "repeatable": false,
+      "component": "component.address"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "shippingAddress": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.address"
+    }
+  }
+}

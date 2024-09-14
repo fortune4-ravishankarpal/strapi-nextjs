@@ -886,6 +886,43 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
 }
 
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Attribute.Component<'component.address'>;
+    products: Attribute.Relation<
+      'api::order.order',
+      'oneToMany',
+      'api::product.product'
+    >;
+    shippingAddress: Attribute.Component<'component.address'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1018,6 +1055,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::custumer.custumer': ApiCustumerCustumer;
       'api::home.home': ApiHomeHome;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::sub-hero-component.sub-hero-component': ApiSubHeroComponentSubHeroComponent;
       'api::wishlist.wishlist': ApiWishlistWishlist;

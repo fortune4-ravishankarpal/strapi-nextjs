@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_component_addresses",
+  "info": {
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "landMark": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    }
+  }
+}
