@@ -20,11 +20,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "link": {
-      "type": "component",
-      "repeatable": false,
-      "component": "component.link"
     }
   }
 }

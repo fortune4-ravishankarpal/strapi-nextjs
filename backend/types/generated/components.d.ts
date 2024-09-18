@@ -1,5 +1,60 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CommonGroup extends Schema.Component {
+  collectionName: 'components_common_groups';
+  info: {
+    displayName: 'group';
+  };
+  attributes: {
+    groupName: Attribute.String;
+    links: Attribute.Relation<'common.group', 'oneToMany', 'api::link.link'>;
+  };
+}
+
+export interface CommonGrp extends Schema.Component {
+  collectionName: 'components_common_grps';
+  info: {
+    displayName: 'grp';
+  };
+  attributes: {
+    link: Attribute.Component<'common.link', true>;
+  };
+}
+
+export interface CommonHeaderCategoryGroup extends Schema.Component {
+  collectionName: 'components_common_header_category_groups';
+  info: {
+    displayName: 'HeaderCategoryGroup';
+    description: '';
+  };
+  attributes: {
+    group: Attribute.Component<'common.group', true>;
+    tabName: Attribute.String;
+  };
+}
+
+export interface CommonLink extends Schema.Component {
+  collectionName: 'components_common_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    text: Attribute.String;
+    link: Attribute.String;
+  };
+}
+
+export interface CommonSingleHeader extends Schema.Component {
+  collectionName: 'components_common_single_headers';
+  info: {
+    displayName: 'singleHeader';
+  };
+  attributes: {
+    Name: Attribute.String;
+    linkTo: Attribute.String;
+  };
+}
+
 export interface ComponentAddress extends Schema.Component {
   collectionName: 'components_component_addresses';
   info: {
@@ -25,18 +80,6 @@ export interface ComponentHeroImage extends Schema.Component {
     title: Attribute.String;
     Image: Attribute.Media<'images'> & Attribute.Required;
     Link: Attribute.Text;
-  };
-}
-
-export interface ComponentLink extends Schema.Component {
-  collectionName: 'components_component_links';
-  info: {
-    displayName: 'Link';
-  };
-  attributes: {
-    url: Attribute.Text;
-    text: Attribute.String;
-    isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -75,7 +118,6 @@ export interface LayoutHeroSection extends Schema.Component {
     heading: Attribute.String;
     subHeading: Attribute.Text;
     image: Attribute.Media<'images'> & Attribute.Required;
-    link: Attribute.Component<'component.link'>;
   };
 }
 
@@ -93,9 +135,13 @@ export interface LayoutSubHero extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'common.group': CommonGroup;
+      'common.grp': CommonGrp;
+      'common.header-category-group': CommonHeaderCategoryGroup;
+      'common.link': CommonLink;
+      'common.single-header': CommonSingleHeader;
       'component.address': ComponentAddress;
       'component.hero-image': ComponentHeroImage;
-      'component.link': ComponentLink;
       'component.sub-link': ComponentSubLink;
       'layout.carousel': LayoutCarousel;
       'layout.hero-section': LayoutHeroSection;

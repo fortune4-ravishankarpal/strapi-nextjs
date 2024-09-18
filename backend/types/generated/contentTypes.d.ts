@@ -861,6 +861,39 @@ export interface ApiCustumerCustumer extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeaderHeader extends Schema.SingleType {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['common.single-header', 'common.header-category-group']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Schema.SingleType {
   collectionName: 'homes';
   info: {
@@ -882,6 +915,30 @@ export interface ApiHomeHome extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLinkLink extends Schema.CollectionType {
+  collectionName: 'links';
+  info: {
+    singularName: 'link';
+    pluralName: 'links';
+    displayName: 'Link';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.UID<'api::link.link', 'name'>;
+    linkTo: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1054,7 +1111,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
       'api::custumer.custumer': ApiCustumerCustumer;
+      'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
+      'api::link.link': ApiLinkLink;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::sub-hero-component.sub-hero-component': ApiSubHeroComponentSubHeroComponent;

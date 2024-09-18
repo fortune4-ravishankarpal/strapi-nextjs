@@ -3,7 +3,7 @@ import { getHomePageData } from "@/lib/callApi";
 
 export default async function Home() {
   let response = await getHomePageData()
-  console.dir(response, { depth: null });
+  // console.dir(response, { depth: null });
 
   return (
     <>

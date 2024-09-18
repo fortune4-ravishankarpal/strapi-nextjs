@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_common_groups",
+  "info": {
+    "displayName": "group"
+  },
+  "options": {},
+  "attributes": {
+    "groupName": {
+      "type": "string"
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link"
+    }
+  }
+}

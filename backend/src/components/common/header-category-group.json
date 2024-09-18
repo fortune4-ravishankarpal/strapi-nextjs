@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_common_header_category_groups",
+  "info": {
+    "displayName": "HeaderCategoryGroup",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "group": {
+      "displayName": "group",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.group"
+    },
+    "tabName": {
+      "type": "string"
+    }
+  }
+}

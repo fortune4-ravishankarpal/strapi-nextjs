@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_common_grps",
+  "info": {
+    "displayName": "grp"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "displayName": "Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link"
+    }
+  }
+}
